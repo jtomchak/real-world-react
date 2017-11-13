@@ -8,6 +8,7 @@
 - [Part 01](#part-01)
 - [Part 02](#part-02)
 - [Part 03](#part-03)
+- [Part 04](#part-04)
 
 <!-- /TOC -->
 
@@ -86,5 +87,13 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 * Fetch some articles. from ```https://codercamps-conduit.herokuapp.com/api```
     * using superAgent to create Articles 
     * we'll be able to append a bunch of other http requests to our agent as we move along. 
+
+# Part 04
+* we are gonna dispatch an action on 'componentWillMount' for our component ```onLoad: payload => dispatch({ type: "HOME_PAGE_LOADED", payload })``` 
+* Created a middleware.js to handle the Promise with promiseMiddleware. This will be a collection of functions that will run when we dispatch actions, modify it in some way if it meets some conditional, then pass it on to the store via dispatch. 
+* Redux has a method ```applyMiddleware``` which will take functions, and apply them to actions. 
+* Now we can just pass the promise in a dispatch, and it will be resolved, before headed off to the store for reducing. Sweet!!!
+* now we should have our articles conosole logged out if we put ```console.log(action.paylaod)``` in our reducer in the root index.js
+ 
 
 
