@@ -1,3 +1,15 @@
+<!-- TOC -->
+
+- [![React + Redux Example App](project-logo.png)](#react--redux-example-appproject-logopng)
+- [Redux codebase containing real world examples (CRUD, auth, advanced patterns, etc)](#redux-codebase-containing-real-world-examples-crud-auth-advanced-patterns-etc)
+  - [Getting started](#getting-started)
+  - [Functionality overview](#functionality-overview)
+- [Part 01](#part-01)
+- [Part 02](#part-02)
+
+<!-- /TOC -->
+
+
 # ![React + Redux Example App](project-logo.png)
 
 > Example React + Redux codebase that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) spec and API.
@@ -57,5 +69,15 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 * Wire up redux in the index.js
 * Set App Name as Props with mapStateToProps 
 * You should now see the app name displayed in your browser!
+
+# Part 02
+* CSS is imported via a link tag, check our index.html for deets
+* Created Feature Home and Header Component
+* Header has our navigation stack in it. sweet
+* Home has:
+    * index 
+    * MainView that will have your global feed and popular tags
+    * Banner, that is just sweet. 
+
 
 
