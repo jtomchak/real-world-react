@@ -12,6 +12,7 @@
 - [Part 05](#part-05)
 - [Part 06](#part-06)
 - [Part 07](#part-07)
+- [Part 08](#part-08)
 
 <!-- /TOC -->
 
@@ -113,5 +114,20 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 * Create the Login component
 * Create a link to the login page in the Header component
 
+# Part 08 
+* create the reducers directory and refactor out the global feed reducer
+* common reducer
+* auth.js reducer file
+* added combineReducer
+* Update the App component & Home component & MainView component
+* agent for POST to api/users/login
+* Login methods
+* Tackle the reducer for auth, we should have auth properties username, email, token. These _should_ be available as props on the Login component with successful login. Use creds below. 
+```js
+email:
+"demo_22@codercamps.com"
+password:
+"testing001"
+```
 
 

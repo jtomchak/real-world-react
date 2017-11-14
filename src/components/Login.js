@@ -1,7 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import agent from "../agent";
+
+//any of the properties on store auth will be spread out to props of the
+//login component
+const mapStateToProps = state => ({ ...state.auth });
+
+const mapDispatchToProps = dispatch => ({
+  onSubmit: (email, password) =>
+    dispatch({ type: "LOGIN", payload: agent.Auth.login(email, password) })
+});
+
 class Login extends React.Component {
+  state = {};
+  handleInputonChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  handleOnSubmit = event => {
+    event.preventDefault();
+    this.props.onSubmit(this.state.email, this.state.password);
+  };
+
   render() {
     return (
       <div className="auth-page">
@@ -13,11 +36,13 @@ class Login extends React.Component {
                 <a>Need an account?</a>
               </p>
 
-              <form>
+              <form onSubmit={this.handleOnSubmit}>
                 <fieldset>
                   <fieldset className="form-group">
                     <input
+                      onChange={this.handleInputonChange}
                       className="form-control form-control-lg"
+                      name="email"
                       type="email"
                       placeholder="Email"
                     />
@@ -25,7 +50,9 @@ class Login extends React.Component {
 
                   <fieldset className="form-group">
                     <input
+                      onChange={this.handleInputonChange}
                       className="form-control form-control-lg"
+                      name="password"
                       type="password"
                       placeholder="Password"
                     />
@@ -47,4 +74,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

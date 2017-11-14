@@ -8,7 +8,7 @@ import agent from "../../agent";
 const Promise = global.Promise;
 
 const mapStateToProps = state => ({
-  appName: state.appName
+  appName: state.common.appName
 });
 
 const mapDispatchToProps = dispatch => ({
