@@ -9,6 +9,7 @@
 - [Part 02](#part-02)
 - [Part 03](#part-03)
 - [Part 04](#part-04)
+- [Part 05](#part-05)
 
 <!-- /TOC -->
 
@@ -94,6 +95,11 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 * Redux has a method ```applyMiddleware``` which will take functions, and apply them to actions. 
 * Now we can just pass the promise in a dispatch, and it will be resolved, before headed off to the store for reducing. Sweet!!!
 * now we should have our articles conosole logged out if we put ```console.log(action.paylaod)``` in our reducer in the root index.js
- 
+
+
+# Part 05
+* Now that we've got our first dipatch to reducers working. Let's set up the switch statement to catch on the action type "HOME_PAGE_LOADED"
+* Create and Build Out the ArticlePreview component 
+* Add the ArticlePreview component in the ArticleList component
 
 

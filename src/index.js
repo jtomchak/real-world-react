@@ -13,7 +13,17 @@ const defaultState = {
 
 const reducer = function(state = defaultState, action) {
   console.log(action.payload);
-  return state;
+  switch (action.type) {
+    case "HOME_PAGE_LOADED":
+      return {
+        ...state,
+        articles: action.payload.articles,
+        articleCount: action.payload.articleCount
+      };
+
+    default:
+      return state;
+  }
 };
 
 const store = createStore(reducer, applyMiddleware(promiseMiddleware));
