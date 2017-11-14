@@ -11,6 +11,7 @@
 - [Part 04](#part-04)
 - [Part 05](#part-05)
 - [Part 06](#part-06)
+- [Part 07](#part-07)
 
 <!-- /TOC -->
 
@@ -106,5 +107,11 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 # Part 06
 * Refactor to make room for routing. Remove all store stuff from index.js and place into a new file called store.js.
 * Let's add some basic routing for our App and it's nested component. We can't hard code home into anymore(App.js Line 19), because it's not always going to be home, it might be something else, like profile or new article. 
+
+
+# Part 07
+* Create the Login component
+* Create a link to the login page in the Header component
+
 
 
