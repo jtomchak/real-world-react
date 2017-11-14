@@ -10,6 +10,7 @@
 - [Part 03](#part-03)
 - [Part 04](#part-04)
 - [Part 05](#part-05)
+- [Part 06](#part-06)
 
 <!-- /TOC -->
 
@@ -101,5 +102,9 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 * Now that we've got our first dipatch to reducers working. Let's set up the switch statement to catch on the action type "HOME_PAGE_LOADED"
 * Create and Build Out the ArticlePreview component 
 * Add the ArticlePreview component in the ArticleList component
+
+# Part 06
+* Refactor to make room for routing. Remove all store stuff from index.js and place into a new file called store.js.
+* Let's add some basic routing for our App and it's nested component. We can't hard code home into anymore(App.js Line 19), because it's not always going to be home, it might be something else, like profile or new article. 
 
 

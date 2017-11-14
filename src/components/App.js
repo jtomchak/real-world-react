@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div>
         <Header appName={appName} />
-        <Home />
+        {this.props.children}
       </div>
     );
   }
