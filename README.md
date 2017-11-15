@@ -158,5 +158,6 @@ password:
 * Accessing & Displaying Authentication Status Sweet. 
 * Update the Header component
 * pass currentUser to it via props 
+* We'll need Postman to test the API endpoints with. Check it out [HERE](https://www.getpostman.com/)
 
 
