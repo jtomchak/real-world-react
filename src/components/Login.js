@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import agent from "../agent";
+// import ListErrors from "./ListErrors";
 
 //any of the properties on store auth will be spread out to props of the
 //login component
@@ -61,8 +62,9 @@ class Login extends React.Component {
                   <button
                     className="btn btn-lg btn-primary pull-xs-right"
                     type="submit"
+                    disabled={this.props.inProgress}
                   >
-                    Sign in
+                    > Sign in
                   </button>
                 </fieldset>
               </form>

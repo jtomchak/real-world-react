@@ -133,7 +133,7 @@ password:
 
 # Part 09
 * Create a ListErrors Component that will take errors as prop, and render's an unordered list
-* Errors should be an array of objects,
+* Errors _should_ be an array of objects,
 * Also, if the state says there's an auth request in progress, we'll disable the submit button.
 
 
