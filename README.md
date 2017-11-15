@@ -15,6 +15,8 @@
 - [Part 08](#part-08)
 - [Part 09](#part-09)
 - [Part 10](#part-10)
+- [Part 11](#part-11)
+- [Part 12](#part-12)
 
 <!-- /TOC -->
 
@@ -144,6 +146,14 @@ password:
 * learned about componentWillReceiveProps as a lifecycle method. sweet
 * wire up dispatch to 'REDIRECT' to stop the router from constantly redirecting
 * Note to us, react router v4 using a component [v4](https://reacttraining.com/react-router/web/example/auth-workflow)
-*  
+
+# Part 11
+* Localstorge as a middleware, what is local middleware
+* Set up localstore to capture the jwt. 
+* all get and post requests now pull the jwt from localstorage and append correctly to the header
+* reducer APP_LOAD to 'rehydrate' our redux store and make the currentUser request
+
+# Part 12
+* Accessing & Displaying Authentication Status Sweet.  
 
 

@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
   onLoad: payload => dispatch({ type: "HOME_PAGE_LOADED", payload })
 });
 
+//class Home extends React.Component
 class Home extends Component {
   componentWillMount() {
     this.props.onLoad(agent.Articles.all());
