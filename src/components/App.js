@@ -41,7 +41,11 @@ class App extends Component {
     const appName = this.props.appName;
     return (
       <div>
-        <Header appName={appName} rootURL={true} />
+        <Header
+          appName={appName}
+          rootURL={true}
+          currentUser={this.props.currentUser}
+        />
         {this.props.children}
       </div>
     );

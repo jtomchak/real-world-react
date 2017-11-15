@@ -155,6 +155,8 @@ password:
 * reducer APP_LOAD to 'rehydrate' our redux store and make the currentUser request
 
 # Part 12
-* Accessing & Displaying Authentication Status Sweet.  
+* Accessing & Displaying Authentication Status Sweet. 
+* Update the Header component
+* pass currentUser to it via props 
 
 
