@@ -24,7 +24,7 @@ class App extends Component {
     const token = window.localStorage.getItem("jwt");
     if (token) {
       //set with agent
-      // agent.setToken(token);
+      agent.setToken(token);
     }
     this.props.onLoad(token ? agent.Auth.current() : null, token);
   }
