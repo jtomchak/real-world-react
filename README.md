@@ -14,6 +14,7 @@
 - [Part 07](#part-07)
 - [Part 08](#part-08)
 - [Part 09](#part-09)
+- [Part 10](#part-10)
 
 <!-- /TOC -->
 
@@ -135,5 +136,14 @@ password:
 * Create a ListErrors Component that will take errors as prop, and render's an unordered list
 * Errors _should_ be an array of objects,
 * Also, if the state says there's an auth request in progress, we'll disable the submit button.
+* 'ASYNC_START' what will trigger a conditional in it's respective store propterty to let us know when an async http request is in progress
+
+# Part 10
+* Some redirects on login
+* added additional action to the common reducer,
+* learned about componentWillReceiveProps as a lifecycle method. sweet
+* wire up dispatch to 'REDIRECT' to stop the router from constantly redirecting
+* Note to us, react router v4 using a component [v4](https://reacttraining.com/react-router/web/example/auth-workflow)
+*  
 
 
