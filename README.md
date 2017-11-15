@@ -13,6 +13,7 @@
 - [Part 06](#part-06)
 - [Part 07](#part-07)
 - [Part 08](#part-08)
+- [Part 09](#part-09)
 
 <!-- /TOC -->
 
@@ -129,5 +130,10 @@ email:
 password:
 "testing001"
 ```
+
+# Part 09
+* Create a ListErrors Component that will take errors as prop, and render's an unordered list
+* Errors should be an array of objects,
+* Also, if the state says there's an auth request in progress, we'll disable the submit button.
 
 
