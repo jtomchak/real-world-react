@@ -9,7 +9,7 @@ export default (state = defaultState, action) => {
     case "APP_LOAD":
       return {
         ...state,
-        token: action.error ? null : action.payload.user.token,
+        token: action.token || null,
         currentUser: action.payload ? action.payload.user : null,
         appLoaded: true
       };
