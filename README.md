@@ -148,6 +148,7 @@ password:
 * Note to us, react router v4 using a component [v4](https://reacttraining.com/react-router/web/example/auth-workflow)
 
 # Part 11
+* ```npm install superagent-jwt``` or ```yarn add superagent-jwt``` we are leveraging this to fetch and append the jwt from localstorage on http request
 * Localstorge as a middleware, what is local middleware
 * Set up localstore to capture the jwt. 
 * all get and post requests now pull the jwt from localstorage and append correctly to the header
