@@ -18,6 +18,7 @@
 - [Part 11](#part-11)
 - [Part 12](#part-12)
 - [Part 13](#part-13)
+- [Part 14](#part-14)
 
 <!-- /TOC -->
 
@@ -167,5 +168,11 @@ password:
 * auth reducer to handle 'REGISTER' a lot like login
 * common reducer to redirect and capture the currentUser!
 * Sweet. Now make a user. 
+
+# Part 14
+* Settings Component with settings reducer, updated store too
+* http PUT method for '/user' to save user data
+* Click to logout action that will remove currentUser and redirect
+* Still need to reset LocalStore, so currently, logging out then refreshing will infact log you back in. d'oh
 
 
