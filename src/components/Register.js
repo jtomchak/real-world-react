@@ -1,7 +1,27 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router";
+
+import agent from "../agent";
+import ListErrors from "./ListErrors";
+
+//any of the properties on store auth will be spread out to props of the
+//login component
+const mapStateToProps = state => ({ ...state.auth });
+
+const mapDispatchToProps = dispatch => ({
+  onSubmit: (username, email, password) => {
+    const payload = agent.Auth.register(username, email, password);
+    dispatch({ type: "REGISTER", payload: payload });
+  }
+});
 
 class Register extends Component {
-  state = {};
+  state = {
+    username: "",
+    email: "",
+    password: ""
+  };
   handleInputChange = event => {
     const targetName = event.target.name;
 
@@ -10,7 +30,14 @@ class Register extends Component {
     });
   };
 
+  submitForm = event => {
+    event.preventDefault();
+    const { username, email, password } = this.state;
+    this.props.onSubmit(username, email, password);
+  };
+
   render() {
+    const { username, email, password } = this.state;
     return (
       <div className="auth-page">
         <div className="container page">
@@ -23,7 +50,7 @@ class Register extends Component {
 
               <ListErrors errors={this.props.errors} />
 
-              <form onSubmit={this.submitForm(username, email, password)}>
+              <form onSubmit={e => this.submitForm(e)}>
                 <fieldset>
                   <fieldset className="form-group">
                     <input
@@ -31,7 +58,7 @@ class Register extends Component {
                       type="text"
                       name="username"
                       placeholder="Username"
-                      value={this.state.username}
+                      value={username}
                       onChange={this.handleInputChange}
                     />
                   </fieldset>
@@ -42,7 +69,7 @@ class Register extends Component {
                       type="email"
                       name="email"
                       placeholder="Email"
-                      value={this.state.email}
+                      value={email}
                       onChange={this.handleInputChange}
                     />
                   </fieldset>
@@ -53,7 +80,7 @@ class Register extends Component {
                       type="password"
                       name="password"
                       placeholder="Password"
-                      value={this.state.password}
+                      value={password}
                       onChange={this.handleInputChange}
                     />
                   </fieldset>
@@ -63,7 +90,7 @@ class Register extends Component {
                     type="submit"
                     disabled={this.props.inProgress}
                   >
-                    Sign in
+                    Join Meow
                   </button>
                 </fieldset>
               </form>
@@ -75,4 +102,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

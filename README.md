@@ -17,6 +17,7 @@
 - [Part 10](#part-10)
 - [Part 11](#part-11)
 - [Part 12](#part-12)
+- [Part 13](#part-13)
 
 <!-- /TOC -->
 
@@ -159,5 +160,12 @@ password:
 * Update the Header component
 * pass currentUser to it via props 
 * We'll need Postman to test the API endpoints with. Check it out [HERE](https://www.getpostman.com/)
+
+# Part 13
+* Register Users!!!
+* agent post auth register
+* auth reducer to handle 'REGISTER' a lot like login
+* common reducer to redirect and capture the currentUser!
+* Sweet. Now make a user. 
 
 
