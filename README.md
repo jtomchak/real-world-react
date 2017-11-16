@@ -20,6 +20,7 @@
 - [Part 13](#part-13)
 - [Part 14](#part-14)
 - [Part 15](#part-15)
+- [Part 16](#part-16)
 
 <!-- /TOC -->
 
@@ -182,6 +183,8 @@ password:
 * Merge objects in willMount before a render, that 'setState' won't work
 * and that meowdium is super amazing
 
+# Part 16
+* Remove JWT from localstorage on logout. 
 
 
 
