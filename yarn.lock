@@ -5294,6 +5294,10 @@ style-loader@0.13.1:
   dependencies:
     loader-utils "^0.2.7"
 
+superagent-jwt@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/superagent-jwt/-/superagent-jwt-0.3.0.tgz#e735151a7b0026b178f7cc05df60b3a4aaebc3f7"
+
 superagent-promise@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/superagent-promise/-/superagent-promise-1.1.0.tgz#baf22d8bbdd439a9b07dd10f8c08f54fe2503533"

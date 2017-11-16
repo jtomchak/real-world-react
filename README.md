@@ -9,6 +9,15 @@
 - [Part 02](#part-02)
 - [Part 03](#part-03)
 - [Part 04](#part-04)
+- [Part 05](#part-05)
+- [Part 06](#part-06)
+- [Part 07](#part-07)
+- [Part 08](#part-08)
+- [Part 09](#part-09)
+- [Part 10](#part-10)
+- [Part 11](#part-11)
+- [Part 12](#part-12)
+- [Part 13](#part-13)
 
 <!-- /TOC -->
 
@@ -94,6 +103,69 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 * Redux has a method ```applyMiddleware``` which will take functions, and apply them to actions. 
 * Now we can just pass the promise in a dispatch, and it will be resolved, before headed off to the store for reducing. Sweet!!!
 * now we should have our articles conosole logged out if we put ```console.log(action.paylaod)``` in our reducer in the root index.js
- 
+
+
+# Part 05
+* Now that we've got our first dipatch to reducers working. Let's set up the switch statement to catch on the action type "HOME_PAGE_LOADED"
+* Create and Build Out the ArticlePreview component 
+* Add the ArticlePreview component in the ArticleList component
+
+# Part 06
+* Refactor to make room for routing. Remove all store stuff from index.js and place into a new file called store.js.
+* Let's add some basic routing for our App and it's nested component. We can't hard code home into anymore(App.js Line 19), because it's not always going to be home, it might be something else, like profile or new article. 
+
+
+# Part 07
+* Create the Login component
+* Create a link to the login page in the Header component
+
+# Part 08 
+* create the reducers directory and refactor out the global feed reducer
+* common reducer
+* auth.js reducer file
+* added combineReducer
+* Update the App component & Home component & MainView component
+* agent for POST to api/users/login
+* Login methods
+* Tackle the reducer for auth, we should have auth properties username, email, token. These _should_ be available as props on the Login component with successful login. Use creds below. 
+```js
+email:
+"demo_22@codercamps.com"
+password:
+"testing001"
+```
+
+# Part 09
+* Create a ListErrors Component that will take errors as prop, and render's an unordered list
+* Errors _should_ be an array of objects,
+* Also, if the state says there's an auth request in progress, we'll disable the submit button.
+* 'ASYNC_START' what will trigger a conditional in it's respective store propterty to let us know when an async http request is in progress
+
+# Part 10
+* Some redirects on login
+* added additional action to the common reducer,
+* learned about componentWillReceiveProps as a lifecycle method. sweet
+* wire up dispatch to 'REDIRECT' to stop the router from constantly redirecting
+* Note to us, react router v4 using a component [v4](https://reacttraining.com/react-router/web/example/auth-workflow)
+
+# Part 11
+* ```npm install superagent-jwt``` or ```yarn add superagent-jwt``` we are leveraging this to fetch and append the jwt from localstorage on http request
+* Localstorge as a middleware, what is local middleware
+* Set up localstore to capture the jwt. 
+* all get and post requests now pull the jwt from localstorage and append correctly to the header
+* reducer APP_LOAD to 'rehydrate' our redux store and make the currentUser request
+
+# Part 12
+* Accessing & Displaying Authentication Status Sweet. 
+* Update the Header component
+* pass currentUser to it via props 
+* We'll need Postman to test the API endpoints with. Check it out [HERE](https://www.getpostman.com/)
+
+# Part 13
+* Register Users!!!
+* agent post auth register
+* auth reducer to handle 'REGISTER' a lot like login
+* common reducer to redirect and capture the currentUser!
+* Sweet. Now make a user. 
 
 

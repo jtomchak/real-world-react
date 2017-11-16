@@ -1,26 +1,24 @@
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
 import React from "react";
+import { Provider } from "react-redux";
+//react-router ^2.8.1
+import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
+import store from "./store";
 import App from "./components/App";
-import { promiseMiddleware } from "./middleware";
-
-const defaultState = {
-  appName: "Meowdium",
-  articles: null
-};
-
-const reducer = function(state = defaultState, action) {
-  console.log(action.payload);
-  return state;
-};
-
-const store = createStore(reducer, applyMiddleware(promiseMiddleware));
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+      </Route>
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
