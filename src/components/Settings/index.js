@@ -3,13 +3,12 @@ import { connect } from "react-redux";
 
 import agent from "../../agent";
 import ListErrors from "../ListErrors";
+import SettingsForm from "./SettingsForm";
 
-const mapStateToProps = state => {
-  return {
-    ...state.settings,
-    currentUser: state.common.currentUser
-  };
-};
+const mapStateToProps = state => ({
+  ...state.settings,
+  currentUser: state.common.currentUser
+});
 
 const mapDispatchToProps = dispatch => ({
   onClickLogout: () => dispatch({ type: "LOGOUT" }),
@@ -27,7 +26,10 @@ class Settings extends Component {
               <h1 className="text-xs-center">Your Settings</h1>
 
               <ListErrors errors={this.props.errors} />
-
+              <SettingsForm
+                currentUser={this.props.currentUser}
+                onSubmitForm={this.props.onSubmitForm}
+              />
               <hr />
 
               <button

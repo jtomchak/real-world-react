@@ -23,6 +23,11 @@ const requests = {
     superagent
       .post(`${API_ROOT}${url}`, body)
       .use(tokenPlugin)
+      .then(responseBody),
+  put: (url, body) =>
+    superagent
+      .put(`${API_ROOT}${url}`, body)
+      .use(tokenPlugin)
       .then(responseBody)
 };
 

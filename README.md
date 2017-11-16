@@ -19,6 +19,7 @@
 - [Part 12](#part-12)
 - [Part 13](#part-13)
 - [Part 14](#part-14)
+- [Part 15](#part-15)
 
 <!-- /TOC -->
 
@@ -174,5 +175,13 @@ password:
 * http PUT method for '/user' to save user data
 * Click to logout action that will remove currentUser and redirect
 * Still need to reset LocalStore, so currently, logging out then refreshing will infact log you back in. d'oh
+
+# Part 15
+* Setting Form that takes currentUser and onSubmitForm as props. 
+* Lifecyles for componentWillMount **AND** componentWillRecieveProps
+* Merge objects in willMount before a render, that 'setState' won't work
+* and that meowdium is super amazing
+
+
 
 
