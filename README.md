@@ -21,6 +21,8 @@
 - [Part 14](#part-14)
 - [Part 15](#part-15)
 - [Part 16](#part-16)
+- [Part 17](#part-17)
+- [Part 18](#part-18)
 
 <!-- /TOC -->
 
@@ -185,6 +187,24 @@ password:
 
 # Part 16
 * Remove JWT from localstorage on logout. 
+
+# Part 17
+* Remember Article Preview? We need to go back and swap out all the a tags for Link tags
+* Added agent http methods to get a single article and the comments of it based on the slug
+* Promise.all. What's that do ? Check it out [HERE](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+* Article Feature Component to display whole article
+* Use of [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml).  
+```js
+/*
+marked is a library that compiles markdown into HTML - in order to get react to render raw HTML, we need to use this dangerouslySetInnerHTML property, because React sanitizes HTML by default.
+  */
+{ __html: marked(article.body) };
+``` 
+
+# Part 18
+* 
+
+
 
 
 
