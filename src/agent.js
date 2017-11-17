@@ -28,12 +28,19 @@ const requests = {
     superagent
       .put(`${API_ROOT}${url}`, body)
       .use(tokenPlugin)
+      .then(responseBody),
+  del: url =>
+    superagent
+      .del(`${API_ROOT}${url}`)
+      .use(tokenPlugin)
       .then(responseBody)
 };
 
 const Articles = {
   all: page => requests.get(`/articles?limit=10`),
-  get: slug => requests.get(`/articles/${slug}`)
+  del: slug => requests.del(`/articles/${slug}`),
+  get: slug => requests.get(`/articles/${slug}`),
+  create: article => requests.post("/articles", { article })
 };
 
 const Auth = {

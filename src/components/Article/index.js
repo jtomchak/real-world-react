@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import marked from "marked";
 
 import agent from "../../agent";
+import ArticleMeta from "./ArticleMeta";
 
 const mapStateToProps = state => ({
   ...state.article,
@@ -37,13 +38,14 @@ marked is a library that compiles markdown into HTML - in order to get react to 
       return null;
     }
     const markup = { __html: marked(article.body) };
-    // const canModify =
-    //   this.props.currentUser.username === article.author.username;
+    const canModify =
+      this.props.currentUser.username === article.author.username;
     return (
       <div className="article-page">
         <div className="banner">
           <div className="container">
             <h1>{article.title}</h1>
+            <ArticleMeta article={this.props.article} canModify={canModify} />
           </div>
         </div>
 
