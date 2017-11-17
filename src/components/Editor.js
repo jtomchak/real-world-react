@@ -12,7 +12,33 @@ const mapStateToDispatch = dispatch => ({
 });
 
 class Editor extends Component {
+  state = {
+    title: "",
+    description: "",
+    body: "",
+    tags: []
+  };
+
+  //handle input change for all form fields via the name prop
+  handleInputChange = event => {
+    const targetName = event.target.name;
+
+    this.setState({
+      [targetName]: event.target.value
+    });
+  };
+
+  handleTagEnter = event => {
+    if (event.keyCode === 13) {
+      this.setState({
+        tags: [...this.state.tags, event.target.value]
+      });
+      this.tagInput = "";
+    }
+  };
+
   render() {
+    const { title, description, body, tags } = this.state;
     return (
       <div className="editor-page">
         <div className="container page">
@@ -26,9 +52,10 @@ class Editor extends Component {
                     <input
                       className="form-control form-control-lg"
                       type="text"
+                      name="title"
                       placeholder="Article Title"
-                      value={this.props.title}
-                      onChange={this.changeTitle}
+                      value={title}
+                      onChange={this.handleInputChange}
                     />
                   </fieldset>
 
@@ -36,9 +63,10 @@ class Editor extends Component {
                     <input
                       className="form-control"
                       type="text"
+                      name="description"
                       placeholder="What's this article about?"
-                      value={this.props.description}
-                      onChange={this.changeDescription}
+                      value={description}
+                      onChange={this.handleInputChange}
                     />
                   </fieldset>
 
@@ -46,9 +74,10 @@ class Editor extends Component {
                     <textarea
                       className="form-control"
                       rows="8"
+                      name="body"
                       placeholder="Write your article (in markdown)"
-                      value={this.props.body}
-                      onChange={this.changeBody}
+                      value={body}
+                      onChange={this.handleInputChange}
                     />
                   </fieldset>
 
@@ -56,10 +85,10 @@ class Editor extends Component {
                     <input
                       className="form-control"
                       type="text"
+                      name="tag"
                       placeholder="Enter tags"
-                      value={this.props.tagInput}
-                      onChange={this.changeTagInput}
-                      onKeyUp={this.watchForEnter}
+                      ref={input => (this.tagInput = input)}
+                      onKeyUp={this.handleTagEnter}
                     />
 
                     <div className="tag-list">
