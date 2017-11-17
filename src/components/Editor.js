@@ -53,7 +53,9 @@ class Editor extends Component {
   };
 
   removeTag = tag => {
-    console.log(tag);
+    this.setState({
+      tagList: [...this.state.tagList.filter(t => t !== tag)]
+    });
   };
 
   render() {
@@ -117,7 +119,7 @@ class Editor extends Component {
                           <span className="tag-default tag-pill" key={tag}>
                             <i
                               className="ion-close-round"
-                              onClick={this.removeTag(tag)}
+                              onClick={() => this.removeTag(tag)}
                             />
                             {tag}
                           </span>

@@ -25,6 +25,7 @@
 - [Part 18](#part-18)
 - [Part 19](#part-19)
 - [Part 20](#part-20)
+- [Part 21](#part-21)
 
 <!-- /TOC -->
 
@@ -226,11 +227,14 @@ create: article =>
 * we can dynamically add tags to our article. 
 * Methods ```handleInputChange, handleTagChange, submitForm, removeTag```
 * now we need a reducer to handle the **"ARTICLE_SUBMITTED":** in both our editor reducer and in our common reducer for redirect. 
-* ```js
+```js
 case "ARTICLE_SUBMITTED":
 const redirectUrl = `article/${action.payload.article.slug}`;
 return { ...state, redirectTo: redirectUrl };
 ``` 
+
+# Part 21
+* Remove tag method. Removing onClick. 
 
 
 
