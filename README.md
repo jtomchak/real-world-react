@@ -222,8 +222,15 @@ create: article =>
     requests.post('/articles', { article })
 ```
 * Let's create an Editor component that will be our form for posting new articles. 
-* 
-* "Looking forward to 2049, minimum viable product will be key to our ability to drive the thought leaders strategically in this space. If we move the needle, we will unfortunately be lagging in multiplatform narrative.The tax-and-accounting department has issues with the social way you literally treated this granular transaction. It's just we're putting new coversheets on all the TPS reports before they go out now. So if you could go ahead and try to remember to do that from now on, that'd be great. All right!
+* We've got a lot of markdown render, really just boils down to fields on change 'title, description, body, tagList, tag' 
+* we can dynamicly add tags to our article. 
+* Methods ```handleInputChange, handleTagChange, submitForm, removeTag```
+* now we need a reducer to handle the **"ARTICLE_SUBMITTED":** in both our editor reducer and in our common reducer for redirect. 
+* ```js
+case "ARTICLE_SUBMITTED":
+const redirectUrl = `article/${action.payload.article.slug}`;
+return { ...state, redirectTo: redirectUrl };
+``` 
 
 
 

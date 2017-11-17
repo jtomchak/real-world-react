@@ -16,7 +16,8 @@ class Editor extends Component {
     title: "",
     description: "",
     body: "",
-    tags: []
+    tagList: [],
+    tag: ""
   };
 
   //handle input change for all form fields via the name prop
@@ -28,17 +29,35 @@ class Editor extends Component {
     });
   };
 
-  handleTagEnter = event => {
-    if (event.keyCode === 13) {
+  handleTagChange = event => {
+    if (event.which === 13 || event.keyCode === 13) {
       this.setState({
-        tags: [...this.state.tags, event.target.value]
+        tagList: [...this.state.tagList, event.target.value],
+        tag: ""
       });
-      this.tagInput = "";
+    } else {
+      this.setState({ tag: event.target.value });
     }
   };
 
+  submitForm = ev => {
+    ev.preventDefault();
+    const article = {
+      title: this.state.title,
+      description: this.state.description,
+      body: this.state.body,
+      tagList: this.state.tagList
+    };
+
+    this.props.onSubmit(agent.Articles.create(article));
+  };
+
+  removeTag = tag => {
+    console.log(tag);
+  };
+
   render() {
-    const { title, description, body, tags } = this.state;
+    const { title, description, body, tagList, tag } = this.state;
     return (
       <div className="editor-page">
         <div className="container page">
@@ -86,18 +105,19 @@ class Editor extends Component {
                       className="form-control"
                       type="text"
                       name="tag"
+                      value={tag}
                       placeholder="Enter tags"
-                      ref={input => (this.tagInput = input)}
-                      onKeyUp={this.handleTagEnter}
+                      onChange={this.handleTagChange}
+                      onKeyUp={this.handleTagChange}
                     />
 
                     <div className="tag-list">
-                      {(this.props.tagList || []).map(tag => {
+                      {tagList.map(tag => {
                         return (
                           <span className="tag-default tag-pill" key={tag}>
                             <i
                               className="ion-close-round"
-                              onClick={this.removeTagHandler(tag)}
+                              onClick={this.removeTag(tag)}
                             />
                             {tag}
                           </span>
@@ -124,4 +144,4 @@ class Editor extends Component {
   }
 }
 
-export default Editor;
+export default connect(mapStateToProps, mapStateToDispatch)(Editor);
