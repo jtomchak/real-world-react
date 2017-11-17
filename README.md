@@ -235,6 +235,19 @@ return { ...state, redirectTo: redirectUrl };
 
 # Part 21
 * Remove tag method. Removing onClick. 
+* Adding routing to handle ```/editor/${article.slug}```
+* Now our Editor Component needs to be able to populate if it's editing an article, rather than a _new_ article
+* We've added componentWillRecieveProps to repopulate or remove current Editor state
+* Look closely at the onSubmit method here. We need to call 'create' or 'update' based on if it's a new article or not. We know if it is from ```this.props.pramas.slug``` 
+* 
+```js
+const promise = this.props.params.slug 
+? agent.Articles.update(Object.assign(article, slug))
+: agent.Articles.create(article);
+```
+* **GOAL** By the end of this you should be able to go to one of your articles, select 'edit' and have that information populated on the edit post form, the submit should also update the article
+
+
 
 
 

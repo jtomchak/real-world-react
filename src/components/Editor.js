@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapStateToDispatch = dispatch => ({
-  onSubmit: payload => dispatch({ type: "ARTICLE_SUBMITTED", payload })
+  onSubmit: payload => dispatch({ type: "ARTICLE_SUBMITTED", payload }),
+  onLoad: payload => dispatch({ type: "EDITOR_PAGE_LOADED", payload })
 });
 
 class Editor extends Component {
@@ -19,6 +20,34 @@ class Editor extends Component {
     tagList: [],
     tag: ""
   };
+
+  //
+  componentWillMount() {
+    if (this.props.params.slug) {
+      return this.props.onLoad(agent.Articles.get(this.props.params.slug));
+    }
+  }
+
+  /**
+   * React-router has an interesting quirk: if two routes have the
+   * same component, react-router will reuse the component when
+   * switching between the two. So if '/editor' and '/editor/slug'
+   * both use the 'Editor' component, react-router won't recreate
+   * the Editor component if you navigate to '/editor' from '/editor/slug'.
+   * To work around this, we need the `componentWillReceiveProps()` hook.
+   */
+  componentWillReceiveProps(nextProps) {
+    if (this.props.params.slug !== nextProps.params.slug) {
+      if (nextProps.params.slug) {
+        return this.props.onLoad(agent.Articles.get(this.props.params.slug));
+      }
+    }
+    if (nextProps.article) {
+      this.setState({
+        ...nextProps.article
+      });
+    }
+  }
 
   //handle input change for all form fields via the name prop
   handleInputChange = event => {
@@ -40,6 +69,11 @@ class Editor extends Component {
     }
   };
 
+  /* When submitting the form, we need to correctly format the
+object and use the update or create - if we have a slug,
+we're updating an article, otherwise we're creating a new
+one.
+*/
   submitForm = ev => {
     ev.preventDefault();
     const article = {
@@ -48,8 +82,12 @@ class Editor extends Component {
       body: this.state.body,
       tagList: this.state.tagList
     };
+    const slug = { slug: this.props.params.slug };
+    const promise = this.props.params.slug
+      ? agent.Articles.update(Object.assign(article, slug))
+      : agent.Articles.create(article);
 
-    this.props.onSubmit(agent.Articles.create(article));
+    this.props.onSubmit(promise);
   };
 
   removeTag = tag => {

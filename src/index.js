@@ -23,6 +23,7 @@ ReactDOM.render(
         <Route path="/settings" component={Settings} />
         <Route path="article/:id" component={Article} />
         <Route path="editor" component={Editor} />
+        <Route path="editor/:slug" component={Editor} />
       </Route>
     </Router>
   </Provider>,
