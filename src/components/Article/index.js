@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
 import { connect } from "react-redux";
 import marked from "marked";
 
@@ -38,8 +37,8 @@ marked is a library that compiles markdown into HTML - in order to get react to 
       return null;
     }
     const markup = { __html: marked(article.body) };
-    const canModify =
-      this.props.currentUser.username === article.author.username;
+    // const canModify =
+    //   this.props.currentUser.username === article.author.username;
     return (
       <div className="article-page">
         <div className="banner">

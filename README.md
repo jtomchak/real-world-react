@@ -202,7 +202,11 @@ marked is a library that compiles markdown into HTML - in order to get react to 
 ``` 
 
 # Part 18
-* 
+* The great clean up. We address several of  the 'warnings' that have been adding up over the course of our project. We should just be left with 2 - these we'll just live with for now. :-) 
+* Cleaned up console log outputs to a respectable state. 
+```
+lowPriorityWarning.js:38 Warning: Accessing PropTypes via the main React package is deprecated, and will be removed in  React v16.0. Use the latest available v15.* prop-types package from npm instead. For info on usage, compatibility, migration and more, see https://fb.me/prop-types-docs
+``` 
 
 
 
