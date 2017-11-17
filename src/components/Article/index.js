@@ -4,6 +4,7 @@ import marked from "marked";
 
 import agent from "../../agent";
 import ArticleMeta from "./ArticleMeta";
+import CommentContainer from "./CommentContainer";
 
 const mapStateToProps = state => ({
   ...state.article,
@@ -70,7 +71,14 @@ marked is a library that compiles markdown into HTML - in order to get react to 
 
           <div className="article-actions" />
 
-          <div className="row" />
+          <div className="row">
+            <CommentContainer
+              comments={this.props.comments || []}
+              errors={this.props.commentErrors}
+              slug={this.props.params.id}
+              currentUser={this.props.currentUser}
+            />
+          </div>
         </div>
       </div>
     );

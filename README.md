@@ -247,7 +247,9 @@ const promise = this.props.params.slug
 ```
 * **GOAL** By the end of this you should be able to go to one of your articles, select 'edit' and have that information populated on the edit post form, the submit should also update the article
 
-
+# Part 22
+* Add the ability to present and add comments to other peoples posts. 
+* We are creating several Components in our Article folder. CommentContainer will have serveral pieces within it. A CommonentList with CommentInput for new comments. A DeleteButton to, um, delete to comment. 
 
 
 
