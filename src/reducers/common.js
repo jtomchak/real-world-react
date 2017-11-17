@@ -42,7 +42,7 @@ export default (state = defaultState, action) => {
     case "DELETE_ARTICLE":
       return {
         ...state,
-        redirectTO: "/"
+        redirectTo: "/"
       };
     case "SETTINGS_SAVED":
       return {

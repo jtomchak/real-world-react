@@ -223,7 +223,7 @@ create: article =>
 ```
 * Let's create an Editor component that will be our form for posting new articles. 
 * We've got a lot of markdown render, really just boils down to fields on change 'title, description, body, tagList, tag' 
-* we can dynamicly add tags to our article. 
+* we can dynamically add tags to our article. 
 * Methods ```handleInputChange, handleTagChange, submitForm, removeTag```
 * now we need a reducer to handle the **"ARTICLE_SUBMITTED":** in both our editor reducer and in our common reducer for redirect. 
 * ```js
