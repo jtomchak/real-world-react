@@ -18,6 +18,14 @@
 - [Part 11](#part-11)
 - [Part 12](#part-12)
 - [Part 13](#part-13)
+- [Part 14](#part-14)
+- [Part 15](#part-15)
+- [Part 16](#part-16)
+- [Part 17](#part-17)
+- [Part 18](#part-18)
+- [Part 19](#part-19)
+- [Part 20](#part-20)
+- [Part 21](#part-21)
 
 <!-- /TOC -->
 
@@ -167,5 +175,82 @@ password:
 * auth reducer to handle 'REGISTER' a lot like login
 * common reducer to redirect and capture the currentUser!
 * Sweet. Now make a user. 
+
+# Part 14
+* Settings Component with settings reducer, updated store too
+* http PUT method for '/user' to save user data
+* Click to logout action that will remove currentUser and redirect
+* Still need to reset LocalStore, so currently, logging out then refreshing will infact log you back in. d'oh
+
+# Part 15
+* Setting Form that takes currentUser and onSubmitForm as props. 
+* Lifecyles for componentWillMount **AND** componentWillRecieveProps
+* Merge objects in willMount before a render, that 'setState' won't work
+* and that meowdium is super amazing
+
+# Part 16
+* Remove JWT from localstorage on logout. 
+
+# Part 17
+* Remember Article Preview? We need to go back and swap out all the a tags for Link tags
+* Added agent http methods to get a single article and the comments of it based on the slug
+* Promise.all. What's that do ? Check it out [HERE](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+* Article Feature Component to display whole article
+* Use of [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml).  
+```js
+/*
+marked is a library that compiles markdown into HTML - in order to get react to render raw HTML, we need to use this dangerouslySetInnerHTML property, because React sanitizes HTML by default.
+  */
+{ __html: marked(article.body) };
+``` 
+
+# Part 18
+* The great clean up. We address several of  the 'warnings' that have been adding up over the course of our project. We should just be left with 2 - these we'll just live with for now. :-) 
+* Cleaned up console log outputs to a respectable state. 
+```
+lowPriorityWarning.js:38 Warning: Accessing PropTypes via the main React package is deprecated, and will be removed in  React v16.0. Use the latest available v15.* prop-types package from npm instead. For info on usage, compatibility, migration and more, see https://fb.me/prop-types-docs
+``` 
+# Part 19
+* Article Actions for deleting article with agent del
+* Article meta data. Showing the author and created date, allowing the 'canModified' property if true, the author can delete,. 
+* a reducer for 'DELETE_ARTICLE' redirect to '/'
+
+# Part 20
+* Finally the Editor!!!!!!!
+* but first an agent call. d'oh!
+```js
+create: article =>
+    requests.post('/articles', { article })
+```
+* Let's create an Editor component that will be our form for posting new articles. 
+* We've got a lot of markdown render, really just boils down to fields on change 'title, description, body, tagList, tag' 
+* we can dynamically add tags to our article. 
+* Methods ```handleInputChange, handleTagChange, submitForm, removeTag```
+* now we need a reducer to handle the **"ARTICLE_SUBMITTED":** in both our editor reducer and in our common reducer for redirect. 
+```js
+case "ARTICLE_SUBMITTED":
+const redirectUrl = `article/${action.payload.article.slug}`;
+return { ...state, redirectTo: redirectUrl };
+``` 
+
+# Part 21
+* Remove tag method. Removing onClick. 
+* Adding routing to handle ```/editor/${article.slug}```
+* Now our Editor Component needs to be able to populate if it's editing an article, rather than a _new_ article
+* We've added componentWillRecieveProps to repopulate or remove current Editor state
+* Look closely at the onSubmit method here. We need to call 'create' or 'update' based on if it's a new article or not. We know if it is from ```this.props.pramas.slug``` 
+* 
+```js
+const promise = this.props.params.slug 
+? agent.Articles.update(Object.assign(article, slug))
+: agent.Articles.create(article);
+```
+* **GOAL** By the end of this you should be able to go to one of your articles, select 'edit' and have that information populated on the edit post form, the submit should also update the article
+
+# Part 22
+* Add the ability to present and add comments to other peoples posts. 
+* We are creating several Components in our Article folder. CommentContainer will have serveral pieces within it. A CommonentList with CommentInput for new comments. A DeleteButton to, um, delete to comment. 
+
+
 
 

@@ -3,7 +3,6 @@ import ArticlePreview from "./ArticlePreview";
 
 const ArticleList = props => {
   //fetching articles
-  console.log(props.articles);
   if (!props.articles) {
     return <div className="article-preview">Loading...</div>;
   }
