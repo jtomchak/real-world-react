@@ -1,14 +1,13 @@
 <!-- TOC -->
 
-- [![React + Redux Example App](project-logo.png)](#react--redux-example-appproject-logopng)
-- [Redux codebase containing real world examples (CRUD, auth, advanced patterns, etc)](#redux-codebase-containing-real-world-examples-crud-auth-advanced-patterns-etc)
-  - [Getting started](#getting-started)
-  - [Functionality overview](#functionality-overview)
-- [Part 01](#part-01)
-- [Part 02](#part-02)
+* [![React + Redux Example App](project-logo.png)](#react--redux-example-appproject-logopng)
+* [Redux codebase containing real world examples (CRUD, auth, advanced patterns, etc)](#redux-codebase-containing-real-world-examples-crud-auth-advanced-patterns-etc)
+  * [Getting started](#getting-started)
+  * [Functionality overview](#functionality-overview)
+* [Part 01](#part-01)
+* [Part 02](#part-02)
 
 <!-- /TOC -->
-
 
 # ![React + Redux Example App](project-logo.png)
 
@@ -73,13 +72,12 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 * You should now see the app name displayed in your browser!
 
 # Part 02
+
 * CSS is imported via a link tag, check our index.html for deets
-* Created Feature Home and Header Component
+* Create a `components folder`, we're gonna move our App.js file into it. **BUT leave the index.js file alone** This is the entry point of our appliction to the DOM.
+* Created Feature Home and Header Component. Home will be a folder with an index.js, while Header, will be a file `Header.js`
 * Header has our navigation stack in it. sweet
 * Home has:
-    * index 
-    * MainView that will have your global feed and popular tags
-    * Banner, that is just sweet. 
-
-
-
+  * index
+  * MainView that will have your global feed and popular tags
+  * Banner, that is just sweet.
