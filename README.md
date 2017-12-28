@@ -17,15 +17,13 @@
 
 Originally created for this [GH issue](https://github.com/reactjs/redux/issues/1353). The codebase is now feature complete and the RFC is open. **Your input is greatly appreciated; please submit bug fixes via pull requests & feedback via issues**.
 
-We're currently working on some docs for the codebase (explaining where functionality is located, how it works, etc) but most things should be self explanatory if you have a minimal understanding of React/Redux.
-
 ## Getting started
 
-You can view a live demo over at https://react-redux.realworld.io/
+You can view a live demo over at https://happy-curran-f56088.netlify.com/#/?_k=z407li
 
 To get the frontend running locally:
 
-* Clone this repo
+* Clone this repo `git clone -b 00 --single-branch https://github.com/jtomchak/real-world-react.git meowdium`
 * `npm install` to install all req'd dependencies
 * `npm run watch` to have webpack bundle the JS files into /bin/main.js, then run `npm start`
 
